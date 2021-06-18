@@ -55,4 +55,4 @@ def transaction(request):
             form.save()
             return balance(request, pka)
     content = {'form': form}
-    return render(request, 'checkbook/AddTransactions.html', content)
+    return render(request, 'checkbook/AddTransaction.html', content)
