@@ -12,10 +12,6 @@ def home(request):
     return render(request, 'checkbook/index.html', content)
 
 
-def create_account(request):
-    return render(request, 'checkbook/CreateNewAccount.html')
-
-
 def balance(request, pk):
     account = get_object_or_404(Account, pk=pk)
     transactions = Transaction.Transactions.filter(account=pk)
@@ -53,6 +49,6 @@ def transaction(request):
             form.save()
             pk = request.POST['account']
             form.save()
-            return balance(request, pka)
+            return balance(request, pk)
     content = {'form': form}
     return render(request, 'checkbook/AddTransaction.html', content)
